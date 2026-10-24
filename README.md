@@ -29,7 +29,7 @@ Creating my VM with my service account.
 gcloud compute instances create my-vm \
     --zone=us-central1-a \
     --address=homework4-ip \
-    --service-account=web-server-sa@project-8aeecca0-4f70-4c6b-8e3.iam.gserviceaccount.com \
+    --service-account=homework5-service-account@project-8aeecca0-4f70-4c6b-8e3.iam.gserviceaccount.com \
     --scopes=cloud-platform \
     --metadata-from-file=startup-script=file-server/startup.sh,file-server-py=file-server/file-server.py
 ```
@@ -52,6 +52,16 @@ curl -i -X POST http://136.64.134.90:8080 \
   -H "X-country: Syria" \
   -d '{"filename": "1164.html"}'
 
+
+curl -H "X-country: France" -H "X-client-IP: 1.2.3.4" -H "X-gender: Male" \
+     -H "X-age: 17-25" -H "X-income: 20k-40k" -H "X-time: 13:00:00" \
+     http://136.64.134.90:8080/1.html
+
+
+curl -H "X-country: Iran" -H "X-client-IP: 1.2.3.4" -H "X-gender: Male" \
+     -H "X-age: 17-25" -H "X-income: 20k-40k" -H "X-time: 13:00:00" \
+     http://136.64.134.90:8080/1.html
+
 ./http-client --domain 136.64.134.90 --port 8080 --num_requests 10 -i 9999 --bucket none --webdir none --verbose
 
 http://136.64.134.90:8080/8291.html
@@ -69,7 +79,7 @@ startup script is called on startup, file server is called by the startup script
 ```
 gcloud compute instances add-metadata my-vm \
     --zone=us-central1-a \
-    --metadata-from-file=startup-script=startup.sh,file-server-py=file-server/file-server.py
+    --metadata-from-file=startup-script=file-server/startup.sh,file-server-py=file-server/file-server.py
 ```
 
 
@@ -143,4 +153,14 @@ gcloud sql instances create my-class-db \
   --no-deletion-protection \
   --no-retain-backups-on-delete \
   --no-final-backup
+```
+
+
+Connecting to the DB locally 
+```
+gcloud sql connect my-class-db --user=root --project=project-8aeecca0-4f70-4c6b-8e3
+
+USE hw5;
+SHOW TABLES;
+DESCRIBE requests;
 ```

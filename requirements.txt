@@ -18,6 +18,9 @@ google-cloud-logging==3.17.0
 google-cloud-pubsub==2.43.0
 google-cloud-secret-manager==2.31.0
 google-cloud-sql==0.1.2
+google-cloud-storage==3.17.1
+google-crc32c==1.9.0
+google-resumable-media==2.11.0
 googleapis-common-protos==1.76.0
 grpc-google-iam-v1==0.14.6
 grpcio==1.84.1
