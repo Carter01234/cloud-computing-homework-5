@@ -123,3 +123,24 @@ gcloud compute instances add-metadata error-logger-vm \
 
 gcloud compute instances reset error-logger-vm --zone=us-central1-a
 ```
+
+
+# Database Commands 
+
+Creating my database 
+```
+gcloud sql instances create my-class-db \
+  --database-version=MYSQL_8_4 \
+  --edition=ENTERPRISE \
+  --tier=db-custom-4-16384 \
+  --zone=us-east1-b \
+  --availability-type=ZONAL \
+  --storage-type=SSD \
+  --storage-size=100GB \
+  --root-password='YOUR_STRONG_PASSWORD' \
+  --assign-ip \
+  --authorized-networks=0.0.0.0/0 \
+  --no-deletion-protection \
+  --no-retain-backups-on-delete \
+  --no-final-backup
+```

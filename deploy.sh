@@ -11,7 +11,7 @@ set -euo pipefail
 # ---------- Configuration ----------
 PROJECT_ID="project-8aeecca0-4f70-4c6b-8e3"
 ZONE="us-central1-a"
-SERVICE_ACCOUNT="web-server-sa@${PROJECT_ID}.iam.gserviceaccount.com"
+SERVICE_ACCOUNT="homework5-service-account@${PROJECT_ID}.iam.gserviceaccount.com"
 
 SERVER_VM="my-vm"
 SERVER_MACHINE_TYPE="e2-micro"
